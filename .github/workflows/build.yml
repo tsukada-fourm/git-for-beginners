@@ -1,0 +1,38 @@
+name: build reveal-md
+run-name: Generate Static pages pages
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "**.md"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  Build-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20.x"
+          cache: "npm"
+      - name: Install dependencies
+        run: npx ci
+      - name: build
+        run: npm run reveal:build
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "generated"
+          git push
+  call-static:
+    needs: [Build-Actions]
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    uses: ./.github/workflows/static.yml

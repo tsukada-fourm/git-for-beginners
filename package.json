@@ -1,0 +1,15 @@
+{
+  "name": "git_for_beginners",
+  "version": "0.1.0",
+  "author": " <>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "reveal:common": "reveal-md slides.md --highlight-theme github",
+    "reveal:start": "npm run reveal:common -- -w",
+    "reveal:build": "npm run reveal:common -- --static docs"
+  },
+  "devDependencies": {
+    "reveal-md": "^6.1.2"
+  }
+}
