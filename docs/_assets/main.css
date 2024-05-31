@@ -1,0 +1,8 @@
+.reveal p {
+  line-height: 1.0;
+}
+
+img[src*="#left"] {
+  float: left;
+  margin: 0 1em 1em 0;
+}

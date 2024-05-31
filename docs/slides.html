@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="./dist/theme/black.css" id="theme" />
     <link rel="stylesheet" href="./css/highlight/github.css" />
 
+    <link rel="stylesheet" href="./_assets/main.css" />
   </head>
   <body>
     <div class="reveal">
@@ -25,6 +26,8 @@
 
 2. はじめに
 3. ハンズオン1
+4. gitの基本操作(1)
+5. gitの基本操作(2)
 ---
 
 ## 2. はじめに
@@ -52,9 +55,20 @@
 
 ----
 
-## Github
+## Githubについて
 
 ### コードの公開・共有、Issue 管理、プルリクエストなどの機能がある
+
+----
+#### コードの公開
+
+![Github Code](images/github/use/code.png)
+
+----
+#### Issue管理
+
+
+![Github Issue](images/github/use/issue.png)
 
 ---
 
@@ -65,13 +79,15 @@
 ###### Github サイトへアクセス
 
 [github](https://github.co.jp "github")にアクセスし、サインインをクリック
-  ![Githubトップ](images/github/account/1.png)
+
+![Githubトップ](images/github/account/1.png)
+
 ----
 
 ###### Account 情報入力
 
 アカウントに必要な情報を入力
-  ![Githubトップ](images/github/account/2.png)
+  ![GitHub登録](images/github/account/2.png)
 
 ----
 
@@ -79,35 +95,152 @@
 
 認証
 
-  ![Githubトップ](images/github/account/3.png)
+  ![GitHub認証](images/github/account/3.png)
 
 ----
 
 これでサインイン成功です
 
-  ![Githubトップ](images/github/account/4.png)
+  ![GitHubトップ](images/github/account/4.png)
+
+---
+## gitのインストール
+
+個々のPCからGitHub上で共有されているファイル等の操作のためにgitをインストールする。
+
+----
+#### gitサイトにアクセス
+![git home](images/git/install/1.png)
+
+----
+
+#### アプリのダウンロード
+
+
+----
+#### アプリのインストール
+
 
 ---
 
-## ここまでの用語
+## gitの概要
+gitについて理解する必要のある用語として以下がある
+リポジトリー
+ブランチ
+ワーキングツリー
 
-- リポジトリ
-- プルリクエスト
+----
+
+#### リモートリポジトリーとローカルリポジトリー
+先のGitHubで共有されていたものをリモートリポジトリーと呼び、
+それをPCに複製したものをローカルリポジトリーと呼ぶ。
+サーバーとPC間での同期はこの単位で行われる。
+
+![GitHub clone](images/github/lecture/git1.drawio.png)
+
+----
+#### 履歴とブランチ
+
+![gitブランチイメージ](images/git/git.xxx.1.drawio.png#left)
+
+テキストを保存するように、あるタイミングの状態をgitでは管理しこれを履歴という。
+
+またこの履歴の連なりを枝分かれさせる機構をブランチという。
+
+
+----
+
+#### ワーキングツリーとインデックス
+cloneで複製されたリポジトリーから、各ファイルが作成されますがそれらはワーキングツリーと呼ばれる作業用のファイルです。
+gitではそれらに変更を加えてインデックスという領域に履歴として保存する内容を選択します。
+
+インデックスは仮保存の領域であり、これをローカルリポジトリーにさらに保存していきます。
+
+補足
+このインデックスに変更を追加していくことをステージングとも呼びます。
+
 
 ---
 
-# Title
+## gitの基本操作(1)
 
-- Point 1l
-- Point 223
-- addx
-- add
+gitで変更を行うための基本操作としてまず以下のコマンドと流れを覚える
 
----
++ git clone
++ git switch
++ git add
++ git commit
++ git push
++ git pull
 
----
+----
 
-## Second slide
+#### git clone
+
+GitHubに共有されているリモートリポジトリーを個々のPCに複製する。
+
+![vscode上でclone](images/github/lecture/1.png)
+
+```
+git clone https://github.com/tsukada-fourm/start-git.git
+```
+
+----
+
+#### git switch
+
+今あるブランチから新しい分岐を作成する。
+
+```
+git switch <みなさんの名前>
+```
+<br>
+新しく作成したブランチで何か編集を行う。
+
+note: 好きなxxx(食べ物/飲み物/遊びetc)をlike.txtに記載する。
+
+----
+
+#### git add
+
+先の編集内容をインデックスに追加します。
+
+```
+git add .
+```
+
+#### git commit
+インデックスからローカルリポジトリーにこの変更を登録します。
+
+```
+git commit -m "<名前>の好きなXXXX"
+```
+
+#### git push 
+cloneの反対にローカルリポジトリーの内容をリモートリポジトリに反映します。
+これによって個々のPCにしかなかった変更履歴を共有します。
+
+```
+git push origin <名前>
+```
+
+--- 
+
+### GitHubの確認
+
+ブランチがどうなったかを確認しよう。
+
+
+---- 
+## gitの基本操作(2)
+
+### 競合の解決
+
+各々の作成したlike.txtはすべて同列の分岐となっています。
+gitのシステムではこのlike.txtを1つのものにしようとした場合に何が正解かわからないため、取りまとめるための作業を人力で行う必要があります。
+
+
+
 
 > Best quote ever.
 > Best quote ever.
@@ -165,7 +298,7 @@ Note: speaker notes FTW!
       // options from URL query string
       var queryOptions = Reveal().getQueryHash() || {};
 
-      var options = extend(defaultOptions, {"_":["slides.md"],"highlight-theme":"github","highlightTheme":"github","static":"docs"}, queryOptions);
+      var options = extend(defaultOptions, {"_":["slides.md"],"highlight-theme":"github","highlightTheme":"github","css":"main.css","static":"docs"}, queryOptions);
     </script>
 
 
