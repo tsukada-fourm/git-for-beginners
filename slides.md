@@ -111,11 +111,14 @@ gitについて理解する必要のある用語として以下がある
 
 ----
 
+#### リポシトリー
+変更履歴・ファイルのすべてを保存しているデータベースのような存在
+
 #### リモートリポジトリーとローカルリポジトリー
-先のGitHubで共有されていたものをリモートリポジトリーと呼び、
+GitHub等で共有されていたものをリモートリポジトリーと呼び、
 それをPCに複製したものをローカルリポジトリーと呼ぶ。
 サーバーとPC間での同期はこの単位で行われる。
-
+----
 ![GitHub clone](images/github/lecture/git1.drawio.png)
 
 ----
@@ -144,14 +147,16 @@ gitではそれらに変更を加えてインデックスという領域に履�
 
 ## gitの基本操作(1)
 
-gitで変更を行うための基本操作としてまず以下のコマンドと流れを覚える
+gitで変更を行うための基本操作として、いくつかのコマンドと流れを覚える
 
-+ git clone
-+ git switch
-+ git add
-+ git commit
-+ git push
-+ git pull
+まずサーバーからデータを共有しローカル上で操作できる状態を作成する。
+
+```
+git clone https://github.com/tsukada-fourm/start-git.git
+git switch -c <みなさんの名前>
+```
+
+![vscode上でコマンド1](images/github/lecture/1.png)
 
 ----
 
@@ -159,25 +164,27 @@ gitで変更を行うための基本操作としてまず以下のコマンド�
 
 GitHubに共有されているリモートリポジトリーを個々のPCに複製する。
 
-![vscode上でclone](images/github/lecture/1.png)
-
-```
-git clone https://github.com/tsukada-fourm/start-git.git
-```
-
-----
-
 #### git switch
 
 今あるブランチから新しい分岐を作成する。
 
-```
-git switch <みなさんの名前>
-```
-<br>
-新しく作成したブランチで何か編集を行う。
+----
 
-note: 好きなxxx(食べ物/飲み物/遊びetc)をlike.txtに記載する。
+新しく作成したブランチで編集を行う。
+
+**お題**
+好きなxxx(食べ物/飲み物/遊びetc)をlike.txtに記載する。
+
+----
+
+### gitの基本操作(2)
+ローカルPC上での編集を管理対象としローカルリポジトリーに登録する。
+
+```
+git add .
+git commit -m "私の好きなXXXX"
+git push origin <branchの名前>
+```
 
 ----
 
@@ -185,24 +192,12 @@ note: 好きなxxx(食べ物/飲み物/遊びetc)をlike.txtに記載する。
 
 先の編集内容をインデックスに追加します。
 
-```
-git add .
-```
-
 #### git commit
 インデックスからローカルリポジトリーにこの変更を登録します。
-
-```
-git commit -m "<名前>の好きなXXXX"
-```
 
 #### git push 
 cloneの反対にローカルリポジトリーの内容をリモートリポジトリに反映します。
 これによって個々のPCにしかなかった変更履歴を共有します。
-
-```
-git push origin <名前>
-```
 
 --- 
 
@@ -211,15 +206,49 @@ git push origin <名前>
 ブランチがどうなったかを確認しよう。
 
 
----- 
-## gitの基本操作(2)
+---
+## gitの基本操作(3)
 
 ### 競合の解決
 
 各々の作成したlike.txtはすべて同列の分岐となっています。
 gitのシステムではこのlike.txtを1つのものにしようとした場合に何が正解かわからないため、取りまとめるための作業を人力で行う必要があります。
 
+```
+git pull origin main
+```
 
+※上のコマンドと同等の動きをするコマンド
+
+```
+git fetch origin main
+git merge origin/main
+```
+
+----
+#### git merge
+他のブランチの変更をワーキングツリーに反映する。
+
+#### git fetch
+ローカルにリモートの最新情報を反映させる。
+
+
+
+---
+## 今回対象外の用語
+
+追跡ブランチ
+---
+参考サイト
+
+1. [git公式 book](https://git-scm.com/book/ja/v2/使い始める-バージョン管理に関して)
+
+
+
+
+高難度
+
+2. [Git が内部でデータを取り扱う方法](https://zenn.dev/username/articles/2022-09-19-8118755d3cd9291907ee)
 
 
 > Best quote ever.
