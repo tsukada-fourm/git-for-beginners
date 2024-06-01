@@ -13,7 +13,10 @@ permissions:
   id-token: write
 
 jobs:
-  Build-Actions:
+  Build-And-Deploy-Actions:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -32,12 +35,6 @@ jobs:
           git add .
           git commit -m "generated"
           git push
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    steps:
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
