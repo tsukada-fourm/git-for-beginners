@@ -242,19 +242,15 @@ git merge origin/main
 
 
 ---
-参考サイト
+## 参考サイト
 
+### 基本
 1. [git公式 book](https://git-scm.com/book/ja/v2/使い始める-バージョン管理に関して)
 
+### 他研修資料
 
 
-
-高難度
+### 応用
 
 2. [Git が内部でデータを取り扱う方法](https://zenn.dev/username/articles/2022-09-19-8118755d3cd9291907ee)
 
-
-> Best quote ever.
-> Best quote ever.
-
-Note: speaker notes FTW!

@@ -1,8 +1,22 @@
 .reveal p {
   line-height: 1.0;
+  font-size: 0.8em;
 }
 
 img[src*="#left"] {
   float: left;
   margin: 0 1em 1em 0;
 }
+
+.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+  text-transform: none;
+ }
+
+
+
+
+
+
+
+
+

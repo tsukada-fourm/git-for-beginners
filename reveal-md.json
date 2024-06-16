@@ -1,0 +1,9 @@
+{
+  "preprocessor": "./../../../preprocess.js",
+  "includeDir": "slides",
+  "highlight-theme": "github",
+  "css": [
+    "main.css"
+  ],
+  "title": "git新人研修"
+}

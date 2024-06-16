@@ -5,7 +5,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "reveal:common": "reveal-md slides.md --highlight-theme github --css main.css",
+    "reveal:common": "reveal-md slides/index.md",
     "reveal:start": "npm run reveal:common -- -w",
     "reveal:build": "npm run reveal:common -- --static docs"
   },

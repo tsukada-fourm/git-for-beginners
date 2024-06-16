@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./dist/reset.css" />
     <link rel="stylesheet" href="./dist/reveal.css" />
     <link rel="stylesheet" href="./dist/theme/black.css" id="theme" />
-    <link rel="stylesheet" href="./css/highlight/github.css" />
+    <link rel="stylesheet" href="./css/highlight/base16/zenburn.css" />
 
     <link rel="stylesheet" href="./_assets/main.css" />
   </head>
@@ -232,7 +232,7 @@ cloneの反対にローカルリポジトリーの内容をリモートリポジ
 ### 競合の解決
 
 各々の作成したlike.txtはすべて同列の分岐となっています。
-gitのシステムではこのlike.txtを1つのものにしようとした場合に何が正解かわからないため、取りまとめるための作業を人力で行う必要があります。
+gitのシステムではこのlike.txtを1つのものにしようとした場合に機械的に判断できないため、取りまとめるための作業を人力で行う必要があります。
 
 ```
 git pull origin main
@@ -247,7 +247,7 @@ git merge origin/main
 
 ----
 #### git merge
-他のブランチの変更をワーキングツリーに反映する。
+他のブランチの状態をワーキングツリーに反映する。
 
 #### git fetch
 ローカルにリモートの最新情報を反映させる。
@@ -258,23 +258,22 @@ git merge origin/main
 ## 今回対象外の用語
 
 追跡ブランチ
----
-参考サイト
 
+
+
+---
+## 参考サイト
+
+### 基本
 1. [git公式 book](https://git-scm.com/book/ja/v2/使い始める-バージョン管理に関して)
 
+### 他研修資料
 
 
-
-高難度
+### 応用
 
 2. [Git が内部でデータを取り扱う方法](https://zenn.dev/username/articles/2022-09-19-8118755d3cd9291907ee)
 
-
-> Best quote ever.
-> Best quote ever.
-
-Note: speaker notes FTW!
 
           </textarea>
         </section>
@@ -327,7 +326,7 @@ Note: speaker notes FTW!
       // options from URL query string
       var queryOptions = Reveal().getQueryHash() || {};
 
-      var options = extend(defaultOptions, {"_":["slides.md"],"highlight-theme":"github","highlightTheme":"github","css":"main.css","static":"docs"}, queryOptions);
+      var options = extend(defaultOptions, {"_":["slides.md"],"static":"docs"}, queryOptions);
     </script>
 
 
