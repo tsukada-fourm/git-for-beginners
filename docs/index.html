@@ -1,25 +1,23 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>git新人研修</title>
+    <link rel="shortcut icon" href="./favicon.ico" />
+    <link rel="stylesheet" href="./dist/reset.css" />
+    <link rel="stylesheet" href="./dist/reveal.css" />
+    <link rel="stylesheet" href="./dist/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="./css/highlight/base16/zenburn.css" />
 
-  <title>git新人研修</title>
-  <link rel="shortcut icon" href="./favicon.ico" />
-  <link rel="stylesheet" href="./dist/reset.css" />
-  <link rel="stylesheet" href="./dist/reveal.css" />
-  <link rel="stylesheet" href="./dist/theme/black.css" id="theme" />
-  <link rel="stylesheet" href="./css/highlight/base16/zenburn.css" />
-
-  <link rel="stylesheet" href="./_assets/main.css" />
-</head>
-
-<body>
-  <div class="reveal">
-    <div class="slides">
-      <section data-markdown data-separator="\r?\n---\r?\n" data-separator-vertical="\r?\n----\r?\n">
-        <textarea data-template>
+    <link rel="stylesheet" href="./_assets/main.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-markdown data-separator="\r?\n---\r?\n" data-separator-vertical="\r?\n----\r?\n">
+          <textarea data-template>
             # git と GitHub についての新人研修
 
 ---
@@ -115,24 +113,72 @@
 ---
 ## gitのインストール
 
+
 個々のPCからGitHub上で共有されているファイル等の操作のためにgitをインストールする。
 
 ----
 #### gitサイトにアクセス
-![git home](../images/git/install/1.png)
+[git install](https://www.git-scm.com/download/win "git install")にアクセスし、
+"64-bit Git for Windows Setup"からインストーラーをダウンロードする。
+
+----
+#### アプリのインストール時のカスタム箇所
+
+インストーラーでは基本そのまま設置を変えなくて良いですが、
+3点ほど変更がよいと思います。
+
+![editor](images/git/install/1.png)
+
+sakuraやvscodeなどに変更を推奨。
+vimについては操作が慣れていない場合は基本操作を覚えてからがよい。
+
+![default branch name](images/git/install/2.png)
+現在masterからmainにdefault branch の名前を変更しているものが多い
+
+![endline](images/git/install/3.png)
+現在はwindows/Linux環境の併用されることもあり、改行コードはEdtiorconfig等で統一する方が安全と考えられる。
+
+
+
+
+
+---
+## gitのコンフィグ設定
+
+
+### gitを利用するにあたり初期設定で必要なもの
+
+```
+git config --global user.name 'ユーザー名'
+git config --global user.email 'メールアドレス'
+```
+
+--globalオプションは現ユーザー(ログインユーザー)共通の設定。
+各プロジェクトごとの場合は --localまたは無記入で設定する。
+
+----
+```
+git config --global push.default current
+git config --global color.ui true
+git config --global core.quotepath false
+```
+
 
 ----
 
-#### アプリのダウンロード
+### 今設定されているものを確認する。
+git config -l --global
 
 
-----
-#### アプリのインストール
+
 
 
 ---
 
 ## gitの概要
+
+
+
 gitについて理解する必要のある用語として以下がある
 リポジトリー
 ブランチ
@@ -172,9 +218,12 @@ gitではそれらに変更を加えてインデックスという領域に履�
 このインデックスに変更を追加していくことをステージングとも呼びます。
 
 
+
 ---
 
 ## gitの基本操作(1)
+
+
 
 gitで変更を行うための基本操作として、いくつかのコマンドと流れを覚える
 
@@ -204,9 +253,12 @@ GitHubに共有されているリモートリポジトリーを個々のPCに複
 **お題**
 好きなxxx(食べ物/飲み物/遊びetc)をlike.txtに記載する。
 
+
 ----
 
 ### gitの基本操作(2)
+
+
 ローカルPC上での編集を管理対象としローカルリポジトリーに登録する。
 
 ```
@@ -234,9 +286,17 @@ cloneの反対にローカルリポジトリーの内容をリモートリポジ
 
 ブランチがどうなったかを確認しよう。
 
+またpull requestを作成しよう。
+
+---
+### PR (未完了)
+
+mainの更新された差分を取り込む時には pull を用いましたが、
+mainに対して
 
 ---
 ## gitの基本操作(3)
+
 
 ### 競合の解決
 
@@ -261,17 +321,21 @@ git merge origin/main
 #### git fetch
 ローカルにリモートの最新情報を反映させる。
 
-
-
----
-## 今回対象外の用語
-
-追跡ブランチ
-
-
+----
+あたらめてgit pushを行い
 
 ---
-参考サイト
+## ハンズオン1
+FILE:fizzbuzz.md
+
+---
+## ハンズオン2
+FILE:kiyoshi.md
+
+---
+## ハンズオン3
+
+FILE:
 
 
 
@@ -290,77 +354,76 @@ git merge origin/main
 
 
           </textarea>
-      </section>
+        </section>
+      </div>
     </div>
-  </div>
 
-  <script src="./dist/reveal.js"></script>
+    <script src="./dist/reveal.js"></script>
 
-  <script src="./mermaid/dist/mermaid.min.js"></script>
+    <script src="./mermaid/dist/mermaid.min.js"></script>
 
-  <script src="./plugin/markdown/markdown.js"></script>
-  <script src="./plugin/highlight/highlight.js"></script>
-  <script src="./plugin/zoom/zoom.js"></script>
-  <script src="./plugin/notes/notes.js"></script>
-  <script src="./plugin/math/math.js"></script>
-  <script>
-    function extend() {
-      var target = {};
-      for (var i = 0; i < arguments.length; i++) {
-        var source = arguments[i];
-        for (var key in source) {
-          if (source.hasOwnProperty(key)) {
-            target[key] = source[key];
+    <script src="./plugin/markdown/markdown.js"></script>
+    <script src="./plugin/highlight/highlight.js"></script>
+    <script src="./plugin/zoom/zoom.js"></script>
+    <script src="./plugin/notes/notes.js"></script>
+    <script src="./plugin/math/math.js"></script>
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
           }
         }
+        return target;
       }
-      return target;
-    }
 
-    // default options to init reveal.js
-    var defaultOptions = {
-      controls: true,
-      progress: true,
-      history: true,
-      center: true,
-      transition: 'default', // none/fade/slide/convex/concave/zoom
-      slideNumber: true,
-      highlight: {
-        highlightOnLoad: false
-      },
-      plugins: [
-        RevealMarkdown,
-        RevealHighlight,
-        RevealZoom,
-        RevealNotes,
-        RevealMath
-      ]
-    };
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        slideNumber: true,
+        highlight: {
+          highlightOnLoad: false
+        },
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealZoom,
+          RevealNotes,
+          RevealMath
+        ]
+      };
 
-    // options from URL query string
-    var queryOptions = Reveal().getQueryHash() || {};
+      // options from URL query string
+      var queryOptions = Reveal().getQueryHash() || {};
 
-    var options = extend(defaultOptions, { "_": ["slides/index.md"], "static": "docs" }, queryOptions);
-  </script>
+      var options = extend(defaultOptions, {"_":["slides/index.md"],"static":"docs"}, queryOptions);
+    </script>
 
 
-  <script>
-    Reveal.initialize(options);
-    Reveal.addEventListener('ready', function (event) {
-      const blocks = Reveal.getRevealElement().querySelectorAll('pre code:not(.mermaid)');
-      const hlp = Reveal.getPlugin('highlight');
-      blocks.forEach(hlp.highlightBlock);
-    });
-  </script>
+    <script>
+      Reveal.initialize(options);
+      Reveal.addEventListener('ready', function (event) {
+        const blocks = Reveal.getRevealElement().querySelectorAll('pre code:not(.mermaid)');
+        const hlp = Reveal.getPlugin('highlight');
+        blocks.forEach(hlp.highlightBlock);
+      });
+    </script>
 
-  <script>
-    const mermaidOptions = extend({ startOnLoad: false }, {});
-    mermaid.startOnLoad = false;
-    mermaid.initialize(mermaidOptions);
-    const cb = function (event) { mermaid.init(mermaidOptions, '.stack.present>.present pre code.mermaid'); };
-    Reveal.addEventListener('ready', cb);
-    Reveal.addEventListener('slidetransitionend', cb);
-  </script>
-</body>
-
+    <script>
+      const mermaidOptions = extend({ startOnLoad: false }, {});
+      mermaid.startOnLoad = false;
+      mermaid.initialize(mermaidOptions);
+      const cb = function (event) { mermaid.init(mermaidOptions, '.stack.present>.present pre code.mermaid'); };
+      Reveal.addEventListener('ready', cb);
+      Reveal.addEventListener('slidetransitionend', cb);
+    </script>
+  </body>
 </html>

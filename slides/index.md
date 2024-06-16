@@ -60,6 +60,16 @@ FILE: git/operation2.md
 
 ブランチがどうなったかを確認しよう。
 
+またpull requestを作成しよう。
+
+---
+### PR (未完了)
+
+mainの更新された差分を取り込む時には pull を用いましたが、
+mainに対してはpull requestを用いて取り込みを行う。
+
+この辺りは別サイトを参考に
+
 ---
 ## gitの基本操作(3)
 
@@ -67,18 +77,15 @@ FILE: git/operation3.md
 
 ---
 ## ハンズオン1
-
-FILE:handsOn/
-
----
-## ハンズオン2
-
 FILE:fizzbuzz.md
 
 ---
-## ハンズオン3
-
+## ハンズオン2
 FILE:kiyoshi.md
+
+---
+## ハンズオン3
+アプリ作成
 
 ---
 ## 参考サイト
