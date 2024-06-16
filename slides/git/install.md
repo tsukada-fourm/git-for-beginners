@@ -3,8 +3,8 @@
 
 ----
 #### gitサイトにアクセス
-![git home](https://www.git-scm.com/download/win)
-64-bit Git for Windows Setup.からインストーラーをダウンロードする。
+[git install](https://www.git-scm.com/download/win "git install")にアクセスし、
+"64-bit Git for Windows Setup"からインストーラーをダウンロードする。
 
 ----
 #### アプリのインストール時のカスタム箇所
