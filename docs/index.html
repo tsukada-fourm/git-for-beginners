@@ -127,15 +127,15 @@
 インストーラーでは基本そのまま設置を変えなくて良いですが、
 3点ほど変更がよいと思います。
 
-![editor](images/git/install/1.png)
+![editor](images/git/install1.png)
 
 sakuraやvscodeなどに変更を推奨。
 vimについては操作が慣れていない場合は基本操作を覚えてからがよい。
 
-![default branch name](images/git/install/2.png)
+![default branch name](images/git/install2.png)
 現在masterからmainにdefault branch の名前を変更しているものが多い
 
-![endline](images/git/install/3.png)
+![endline](images/git/install3.png)
 現在はwindows/Linux環境の併用されることもあり、改行コードはEdtiorconfig等で統一する方が安全と考えられる。
 
 
@@ -231,6 +231,7 @@ gitで変更を行うための基本操作として、いくつかのコマン�
 
 ```
 git clone https://github.com/tsukada-fourm/start-git.git
+cd start-git
 git switch -c <みなさんの名前>
 ```
 
@@ -292,7 +293,9 @@ cloneの反対にローカルリポジトリーの内容をリモートリポジ
 ### PR (未完了)
 
 mainの更新された差分を取り込む時には pull を用いましたが、
-mainに対して
+mainに対してはpull requestを用いて取り込みを行う。
+
+この辺りは別サイトを参考に
 
 ---
 ## gitの基本操作(3)
@@ -321,9 +324,6 @@ git merge origin/main
 #### git fetch
 ローカルにリモートの最新情報を反映させる。
 
-----
-あたらめてgit pushを行い
-
 ---
 ## ハンズオン1
 FILE:fizzbuzz.md
@@ -334,10 +334,7 @@ FILE:kiyoshi.md
 
 ---
 ## ハンズオン3
-
-FILE:
-
-
+アプリ作成
 
 ---
 ## 参考サイト
