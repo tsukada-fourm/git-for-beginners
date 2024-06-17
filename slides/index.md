@@ -77,11 +77,11 @@ FILE: git/operation3.md
 
 ---
 ## ハンズオン1
-FILE:fizzbuzz.md
+FILE: handsOn/fizzbuzz.md
 
 ---
 ## ハンズオン2
-FILE:kiyoshi.md
+FILE: handsOn/kiyoshi.md
 
 ---
 ## ハンズオン3
