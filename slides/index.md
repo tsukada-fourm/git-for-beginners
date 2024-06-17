@@ -9,7 +9,7 @@ FILE: contents.md
 
 ## 2. はじめに
 
-FILE: introduction.md
+FILE: Introduction.md
 
 ---
 
