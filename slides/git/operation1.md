@@ -6,6 +6,7 @@ gitで変更を行うための基本操作として、いくつかのコマン�
 
 ```
 git clone https://github.com/tsukada-fourm/start-git.git
+cd start-git
 git switch -c <みなさんの名前>
 ```
 
